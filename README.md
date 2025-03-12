@@ -13,6 +13,7 @@ dependencies: [
 ```
 
 ### 代码使用
+#### GCoordKit
 ```swift
     let pos: Position = (lng: 116.307490, lat: 39.984154)
     let crsType: CRSType = .GCJ02
@@ -47,4 +48,10 @@ dependencies: [
     print("WGS84 InChinaBbox = \(WGS84InChinaBbox)")
 ```
 
-
+#### CLLocationCoordinate2D+
+```swift
+    let coord = CLLocationCoordinate2D(latitude: 39.984154, longitude: 116.307490)
+    let isInChinaBbox = try coord.isInChinaBbox(.GCJ02)
+    let toCoord = try coord.transform(from: .GCJ02, to: .WGS84)
+    print("coord = \(["coord": coord, "isInChinaBbox": isInChinaBbox, "toCoord": toCoord])")
+```
